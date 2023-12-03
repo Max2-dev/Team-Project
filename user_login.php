@@ -19,7 +19,7 @@
         <label for="psw">Password</label>
         <input type="password" placeholder="Enter Password" class="un_input" name="psw" required>
             
-        <button type="submit" name="login" class="frmbtn">Log in</button>
+        <button type="submit" name="login" id="loginbtn" class="frmbtn">Log in</button>
 
         <span>Create a new Account? <a href="user_signup.php" class="link"> Sign up</a></span>
         <span>Click to <a href="#"> Log in as Admin</a></span>

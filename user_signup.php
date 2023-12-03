@@ -25,7 +25,7 @@
         <label for="cfmpsw">Confirm Password</label>
         <input type="password" placeholder="Confirm Password" class="un_input" name="cfmpsw" required>
 
-        <button type="submit" class="frmbtn" name="signedup">Sign Up</button>
+        <button type="submit" class="frmbtn" id="signupbtn" name="signedup">Sign Up</button>
 
         <span>Already have an account? <a href="user_login.php" class="link"> Log In</a></span>
       </form>
