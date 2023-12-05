@@ -34,3 +34,30 @@
 </section>
 </body>
 </html>
+<script>
+let form = document.getElementById("signup");
+let first_pass = form.psw;
+let confirm_pass = form.cfmpsw;
+
+
+first_pass.onsubmit = checkPassword();
+confirm_pass.onsubmit = checkPassword();
+
+// Function to check that users 2 passwords match on the form
+function checkPassword(){
+    let form = document.getElementById("signup");
+
+    let first_pass = form.psw;
+    let confirm_pass = form.cfmpsw;
+    let errors = '';
+    
+    if(first_pass.value === confirm_pass.value) {
+        first_pass.setCustomValidity('');
+    } else {
+        errors += "Passwords Must Match";
+    }
+    
+    first_pass.setCustomValidity(errors);
+    first_pass.reportValidity();
+}
+</script>
