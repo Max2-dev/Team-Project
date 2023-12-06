@@ -9,7 +9,7 @@
 <body class="u_bcolor">
 <section id="login-section">
     <div class="container">
-      <form class="frm">
+      <form class="frm" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="POST">
         <header class="header">Welcome</header>
         <p>Log in</p>
         <p>Please fill in this form to log in</p>
@@ -30,3 +30,56 @@
 </section>
 </body>
 </html>
+<?php
+
+
+if(isset($_POST['login'])){
+    require_once('connectdb.php');
+    echo "You are now in Log in database";
+
+    if(isset($_POST['username'],$_POST['psw'])){
+        $username = filter_input(INPUT_POST,$_POST['username'],FILTER_SANITIZE_STRING);
+        $password = password_hash($_POST['psw'],PASSWORD_DEFAULT);
+
+    } else {
+        exit("Please Log in with your details again");
+    }
+
+
+    try{
+      $username = $_POST['username'];
+      $password = $_POST['psw'];
+      
+      $stat = $db->prepare("SELECT password FROM customer WHERE username = :username");
+      $stat->bindParam(':username', $username, PDO::PARAM_STR, 50);
+      
+      $stat->execute();
+      
+      if($stat->rowCount() > 0){
+        
+        $row = $stat->fetch();
+        // Checks that password entered in login form and database are matched
+        if(password_verify($password, $row['password'])){
+          session_start();
+          $_SESSION["login_username"] = $username;
+          $_SESSION["password"] = $password;
+          
+          header("Location:products.php");
+          exit();
+
+        } else {
+          echo "Incorrect Password dont match";
+          exit();
+        }
+      } else {
+        echo "Username not found";
+        exit();
+      }
+    } catch(PDOexception $error){
+      echo "Sorry, a database error occurred! <br>";
+      echo "Error details: <em>". $error->getMessage()."</em>";
+    }
+}
+
+
+?>
