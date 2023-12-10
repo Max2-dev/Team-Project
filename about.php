@@ -38,11 +38,11 @@ if(isset($_SESSION['user_id'])){
    <div class="row">
 
    <section id="about-us">
-        <h1>About T32 Games</h1>
-        <p>Welcome to T32 Games, your ultimate destination for cutting-edge gaming technology. We are dedicated to developing and delivering innovative gaming experiences that push the boundaries of creativity and technology.</p>
-        <p>T32 Games has quickly established itself as a leader in the gaming industry. Our team consists of passionate developers, designers, and gaming enthusiasts who are committed to creating immersive and engaging games for players around the world.</p>
-        <p>At T32 Games, we believe in harnessing the power of technology to create games that are not only entertaining but also offer unique and memorable experiences. Our portfolio includes a variety of games across different genres, each designed with our signature touch of innovation and excellence.</p>
-        <p>We are constantly exploring new technologies and trends to ensure that our games remain at the forefront of the gaming industry. Join us on our journey as we continue to redefine gaming and bring our vision to life.</p>
+      
+   <h1>About T32 Games</h1>
+   <p>Welcome to T32 Games, your go-to source for the latest video games and gaming technology. We specialize in offering a wide variety of top-quality games and the newest gaming gear to enthusiasts and casual players alike.</p>
+   <p>Our team, passionate about all things gaming, carefully selects products to ensure you have access to the best the industry has to offer. From popular titles to cutting-edge gaming consoles, T32 Games is your destination for your gaming needs.</p>
+   <p>Discover the latest trends in gaming technology and explore our diverse selection of games. At T32 Games, we're dedicated to enhancing your gaming experience with exceptional products and knowledgeable service.</p>
          <a href="contact.php" class="btn">contact us</a>
       </div>
 
