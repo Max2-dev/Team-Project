@@ -131,6 +131,10 @@ if(isset($_GET['delete'])){
             <span>Product Details (required)</span>
             <textarea name="details" placeholder="enter product details" class="box" required maxlength="500" cols="30" rows="10"></textarea>
          </div>
+         <div class="inputBox">
+            <span>Stock level units</span>
+            <input type="number" min="0" class="box" required max ="9999999999" placeholder="Enter units" onkeypress="if(this.value.length == 10) return false;" name="units">
+         </div>
       </div>
       
       <input type="submit" value="add product" class="btn" name="add_product">
