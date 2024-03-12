@@ -10,6 +10,15 @@ if(!isset($admin_id)){
    header('location:admin_login.php');
 };
 
+$fetch_products = $conn->prepare('SELECT stock_level FROM `products`');
+$fetch_products->execute();
+$out_of_stock_products = $fetch_products->fetch(PDO::FETCH_ASSOC);
+
+if($out_of_stock_products = 'Unavailable'){
+   $message[] = 'Attention, There are products out of stock please check inventory';
+}
+
+
 if(isset($_POST['add_product'])){
 
    $name = $_POST['name'];
