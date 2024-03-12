@@ -135,6 +135,12 @@ if(isset($_GET['delete'])){
             <span>Stock level units</span>
             <input type="number" min="0" class="box" required max ="9999999999" placeholder="Enter units" onkeypress="if(this.value.length == 10) return false;" name="units">
          </div>
+         <div class="inputBox">
+            <span>Category (required)</span>
+            <select name="Category_id" class="box" required>
+               <option value="" disabled selected>Select category</option>
+               <option value='3'>consoles</option><option value='6'>headphones</option><option value='1'>laptop</option><option value='8'>misc</option><option value='4'>pcaccessory</option><option value='7'>smartphone</option><option value='2'>tv</option><option value='5'>videogames</option>            </select>
+         </div>
       </div>
       
       <input type="submit" value="add product" class="btn" name="add_product">
