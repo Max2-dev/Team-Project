@@ -19,6 +19,12 @@ if(isset($_POST['add_product'])){
    $details = $_POST['details'];
    $details = filter_var($details, FILTER_SANITIZE_STRING);
 
+   $units = $_POST['units'];
+   $units = filter_var($units, FILTER_SANITIZE_NUMBER_INT);
+
+   $category_id = $_POST['Category_id'];
+   $category_id = filter_var($category_id, FILTER_SANITIZE_STRING);
+
    $image_01 = $_FILES['image_01']['name'];
    $image_01 = filter_var($image_01, FILTER_SANITIZE_STRING);
    $image_size_01 = $_FILES['image_01']['size'];
@@ -46,6 +52,14 @@ if(isset($_POST['add_product'])){
 
       $insert_products = $conn->prepare("INSERT INTO `products`(name, details, price, image_01, image_02, image_03) VALUES(?,?,?,?,?,?)");
       $insert_products->execute([$name, $details, $price, $image_01, $image_02, $image_03]);
+
+      if($insert_products){
+         if($units > 0){
+            $fetch_stock_level = $conn->prepare("UPDATE `products` SET stock_level = 'Available' WHERE units = ?");
+            $fetch_stock_level->execute([$units]);
+         }
+      }
+
 
       if($insert_products){
          if($image_size_01 > 2000000 OR $image_size_02 > 2000000 OR $image_size_03 > 2000000){
