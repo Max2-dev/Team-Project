@@ -1,0 +1,76 @@
+/* Card box for the tables */
+.card-box {
+    box-sizing: border-box;
+}
+
+/* Float four columns side by side */
+.column {
+    flex: 50%;
+    padding: 10px;
+}
+
+
+
+.stock_levels_column {
+    width: 100%;
+    padding: 10px;
+}
+
+/* Remove extra left and right margins, due to padding */
+.row {
+    margin: 0 -5px;
+    display: flex
+}
+
+/* Clear floats after the columns */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/* Style the counter cards */
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    padding: 16px;
+    text-align: center;
+    background-color: #f1f1f1;
+}
+
+/* Table Border style */
+table,
+th,
+td {
+    border: 1px solid black;
+    border-collapse: collapse;
+    font-size: 16px;
+    font-family: sans-serif, Arial, Helvetica;
+}
+
+/* Table header and data style */
+th,
+td {
+    padding: 8px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+}
+
+/* Table */
+table {
+    width: 100%;
+}
+
+/* Add Purchase Order button */
+#entry-btn {
+    float: right;
+    font-size: 16px;
+}
+
+/* Responsive columns */
+@media screen and (max-width: 600px) {
+    .column {
+        width: 100%;
+        display: block;
+        margin-bottom: 20px;
+    }
+}
