@@ -41,7 +41,7 @@ if($orders['payment_status'] = 'pending'){
 
 <body>
   <?php include '../components/admin_header.php'; ?>
-<section class="add-box">
+<section class="card-box">
   <h1 class="heading">Reports</h1>
   <div class="row">
     <div class="stock_levels_column">
