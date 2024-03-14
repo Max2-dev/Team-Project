@@ -37,7 +37,7 @@ if(isset($_POST['add_order'])){
         if($enter_order){
             $update_status = $conn->prepare("UPDATE `purchasing` SET status = 'Ordered' WHERE supplier = ?");
             $update_status->execute([$supplier]);
-            $message[] = 'Order Sent, Thank you!';
+            $message[] = 'Order Sent, Thank you';
 
         } else {
             $message[] = 'An Error Occurred, Please try again';
