@@ -11,15 +11,7 @@ if(!isset($admin_id)){
 }
 
 
-$update = $conn->prepare("SELECT * FROM `orders`");
-$update->execute();
 
-$orders = $update->fetch(PDO::FETCH_ASSOC);
-
-if($orders['payment_status'] = 'pending'){
-  $new = $conn->prepare("UPDATE `products` WHERE units = ?");
-  
-}
 
 
 ?>
@@ -168,7 +160,7 @@ if($orders['payment_status'] = 'pending'){
           <tbody>
             <?php
 
-            $query = "SELECT * FROM orders";
+            $query = "SELECT * FROM orders WHERE payment_status = 'completed'";
             $stat = $conn->prepare($query);
             $stat->execute();
 
@@ -176,9 +168,7 @@ if($orders['payment_status'] = 'pending'){
 
             if($result){
               foreach($result as $row){
-                if($row['payment_status'] == "completed"){
 
-                }
                 ?>
                 <tr>
                   <td><?= $row['id']; ?></td>
@@ -195,7 +185,7 @@ if($orders['payment_status'] = 'pending'){
             else {
               ?>
               <tr>
-                <td colspan="6"> No Order Records Found</td>
+                <td colspan="6"> No Completed Order Records Found</td>
               </tr>
             <?php
             }
