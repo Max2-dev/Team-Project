@@ -17,5 +17,8 @@ CREATE TABLE `products` (
   `image_02` varchar(100) NOT NULL,
   `image_03` varchar(100) NOT NULL,
   `Category_id` int(11) NOT NULL,
+    `units` int(100) NOT NULL,
+    `stock_level` enum('Available','Unavailable') NOT NULL DEFAULT 'Unavailable'
+    
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
