@@ -15,20 +15,20 @@ if(isset($_POST['order'])){
 
    $name = $_POST['name'];
    $name = substr($name, 0, 255); // Truncate name to fit within 255 characters
-   $name = filter_var($name, FILTER_SANITIZE_STRING);
+   $name = filter_var($name);
    
    $number = $_POST['number'];
    $number = substr($number, 0, 20); // Truncate number to fit within 20 characters
-   $number = filter_var($number, FILTER_SANITIZE_STRING);
+   $number = filter_var($number);
    
    $email = $_POST['email'];
-   $email = filter_var($email, FILTER_SANITIZE_STRING);
+   $email = filter_var($email);
    
    $method = $_POST['method'];
-   $method = filter_var($method, FILTER_SANITIZE_STRING);
+   $method = filter_var($method);
    
    $address = ' no. '. $_POST['flat'] .', '. $_POST['street'] .', '. $_POST['city'] .', '. $_POST['state'] .', '. $_POST['country'] .' - '. $_POST['pin_code'];
-   $address = filter_var($address, FILTER_SANITIZE_STRING);
+   $address = filter_var($address);
    
    $total_products = $_POST['total_products'];
    $total_price = $_POST['total_price'];
@@ -109,11 +109,13 @@ if(isset($_POST['order'])){
       <div class="flex">
          <div class="inputBox">
             <span>Name :</span>
-            <input type="text" name="name" placeholder="Enter Name*" class="box" maxlength="25" required>
+            <input type="text" name="name" placeholder="Enter Name*" class="box" maxlength="50" required>
          </div>
          <div class="inputBox">
             <span>Contact Number :</span>
-            <input type="text" name="number" placeholder="Enter Contact Number*" class="box" maxlength="11" required>
+           <input type="tel" name="number" placeholder="Enter Contact Number*" class="box" maxlength="50" required autocomplete="new-number">
+
+
          </div>
          <div class="inputBox">
             <span>Email Address :</span>
